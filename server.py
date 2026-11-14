@@ -136,7 +136,7 @@ def collect():
         data["water_temperature"]={"station":"Perämeren aaltopoiju","temperature":{"value":None,"time":None},"unit":"°C"}
     return data
 class Handler(SimpleHTTPRequestHandler):
-    def __init__(self,*args,**kwargs): super().__init__(*args,directory=str(ROOT/'static'),**kwargs)
+    def __init__(self,*args,**kwargs): super().__init__(*args,directory=str(ROOT),**kwargs)
     def do_GET(self):
         if self.path.startswith("/api/data"):
             try:
