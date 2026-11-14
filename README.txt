@@ -1,17 +1,31 @@
-PERÄMERI V0.2 – PWA
+PERÄMERI-SEURANTA v1.0 – FMI-LIVEHAKU, ASENNETTAVA WEB-SOVELLUS
 
-Tämä on parannettu käyttöliittymäversio, jossa kuun vaihe lasketaan paikallisesti.
-Meri-, tuuli-, aallokko- ja sääkentät ovat vielä tyhjiä: niitä EI esitetä live-datana.
+Sisältö:
+- Pietarsaari Leppäluoto (FMISID 134250) ja Raahe Lapaluoto (100540), merivedenkorkeus, mm
+- Tankar (FMISID 101661), sää
+- Hollihaka: FMI-asematunnusta ei ole vahvistettu. Sovellus ei keksi havaintoja.
+  Jos oikea FMISID löytyy, aseta HOLLIHAKA_FMISID ympäristömuuttujaksi.
+- Automaattinen 10 minuutin välein tapahtuva päivitys ja 48 tunnin merivedenkorkeuskäyrä.
+- Virhetilanteet näytetään, ei keksittyjä arvoja.
 
-Asennus:
-1. Julkaise tämän kansion sisältö HTTPS-palvelimelle.
-2. Avaa URL Androidin Chrome-selaimessa.
-3. Valitse Chrome-valikosta Lisää aloitusnäyttöön / Asenna sovellus.
+KÄYNNISTYS:
+1. Asenna Python 3.10 tai uudempi.
+2. Avaa komentorivi tämän kansion sisällä.
+3. Suorita: python server.py
+4. Avaa tietokoneella: http://localhost:8000
 
-Live-data:
-FMI Open Data käyttää WFS-rajapintaa ja tunnistautumista/API-avainta. Tuotantoversioon
-tarvitaan turvallinen backend/proxy (avainta ei pidä upottaa HTML:ään). Mareografien FMI-ID:t:
-Pietarsaari Leppäluoto 134250, Raahe Lapaluoto 100540.
-FMI asemalähde: https://en.ilmatieteenlaitos.fi/observation-stations
-Merivedenkorkeuden tietoa: https://www.ilmatieteenlaitos.fi/avoin-data
-Aallokko: https://www.ilmatieteenlaitos.fi/aaltoennuste
+PUHELIMELLA:
+Palvelin on julkaistava HTTPS-osoitteeseen, jotta sovelluksen voi asentaa
+Androidin aloitusnäytölle. Tämä ZIP ei itsessään ole Androidin APK.
+Esim. Render/Railway/VPS, käynnistyskomento: python server.py
+PORT luetaan ympäristömuuttujasta.
+PWA-manifestissa ei ole vielä asennuskuvakkeita; selaimen asennettavuus riippuu selaimesta.
+
+RAJOITUKSET:
+- FMI:n livevastauksia ei ole voitu testata tässä ympäristössä. Koodi on toimiva
+  toteutuspohja, mutta kenttänimet/parametrit saattavat vaatia korjauksia.
+- Merivedenkorkeuden yksikkö on FMI:n WFS:n mm; ei muuteta korkeusjärjestelmää.
+- Hollihaka voi olla muun ylläpitäjän sääasema, eikä sen tietoja silloin löydy FMI WFS:stä.
+- Sovellus hakee FMI:n avoimia havaintoja, ei ennusteita eikä aallonkorkeutta.
+- FMI WFS: https://opendata.fmi.fi/wfs
+- FMI avoin data: CC BY 4.0, Ilmatieteen laitos.

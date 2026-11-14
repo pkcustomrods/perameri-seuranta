@@ -1,0 +1,15 @@
+PERÄMERI-SEURANTA – ANDROID PWA
+
+Tämä on Androidiin asennettava verkkosovellus, EI APK-tiedosto.
+
+1. Julkaise tämän ZIP-paketin sisältö HTTPS-palvelimeen, jossa Python server.py voi olla käynnissä.
+   Mukana on render.yaml Render-palveluun julkaisemisen helpottamiseksi.
+   Esimerkiksi GitHubiin siirretty hakemisto voidaan yhdistää Renderin web serviceen.
+2. Avaa julkaistu HTTPS-osoite Androidin Chromessa.
+3. Avaa Chromen kolmen pisteen valikko ja valitse "Asenna sovellus" tai "Lisää aloitusnäyttöön".
+4. Sovellus avautuu omasta kuvakkeestaan.
+
+HUOMIO: Sovellusta ei ole julkaistu verkkoon eikä FMI:n vastauksia ole testattu tässä ympäristössä.
+Hollihakan havaintoasema ei toimi ennen kuin oikea FMISID on varmistettu ja asetettu
+HOLLIHAKA_FMISID-ympäristömuuttujaan. Älä tulkitse puuttuvia arvoja mittauksiksi.
+Sovelluksen ulkoasu voidaan avata paikallisesti, mutta live-haku vaatii palvelimen.
